@@ -92,7 +92,7 @@ def add_item(n_enter_timestamp, todo_text, existing_todos):
 # Strike-out the todo text when the item is selected
 def todo_style_completed(itemSelectedId):
     
-    #This could altenatively be declared right alongside the component
+    #This could alternatively be declared right alongside the component
     #when being built. I may explore that in the next version
     @app.callback([Input(itemSelectedId, 'value')])
     def inner(value):
