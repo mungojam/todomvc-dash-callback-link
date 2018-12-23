@@ -97,7 +97,7 @@ def create_todo_item(todo_text, todo_number):
 # Source() could allow us to get properties or meta-data directly
 # from the triggering component. 
 # It is another special case of State(), like Current() is
-@app.callback([], [Source('value'), Current()])
+@app.callback(state=[Source('value'), Current()])
 def add_item(todo_text, existing_todos):
     #We can have a go at fixing the identified bug with the 
     #original solution by finding the maximum id (not implemented here)
@@ -197,7 +197,7 @@ def display_clear_completed(values, item_numerical_ids):
 
 # Remove a todo item, which now just needs to know the 
 # which specific item got clicked
-@app.callback([],[Source("todo_number"), Current()])
+@app.callback(state=[Source("todo_number"), Current()])
 def remove_item(todo_number, existing_todos):
     # It might be inefficient to bring in the full children tree
     # but at least the calls can be chained together so that they are only
@@ -205,8 +205,7 @@ def remove_item(todo_number, existing_todos):
     # function in python
     return [todo for todo in existing_todos if todo.todo_number != todo_number]
 
-@app.callback([],
-              [
+@app.callback(state=[
                 State('item-selected-{*n:d}', 'values'), 
                 Current()
                ])
