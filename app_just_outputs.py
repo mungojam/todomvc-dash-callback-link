@@ -173,7 +173,7 @@ def remove_item(n_clicks, id, existing_todos):
     # function in python
     return [todo for todo in existing_todos if todo.id != 'item-container-{}'.format(id)]
 
-@app.callback([Input('clear-todos', 'n_clicks')],
+@app.callback([Input('clear-completed', 'n_clicks')],
               [
                 State('item-selected-{*n:d}', 'values'), 
                 Current()
