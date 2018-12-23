@@ -73,6 +73,9 @@ def create_todo_item(todo_text, todo_number):
             )
 
     return html.Div(
+        #Leave this id in because it could be handy in any callback tree display
+        #The children will be more obvious so don't need a name (assuming their type is shown)
+        #It is also needed for some input selectors
         id='item-container-{}'.format(todo_number),
         style=app.compute(
                 #Alternatively could use a 
